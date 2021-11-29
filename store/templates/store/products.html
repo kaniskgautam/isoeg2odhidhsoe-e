@@ -1,0 +1,152 @@
+{% extends "store/base.html" %} {% block title %}Products{% endblock title %}
+{%load static %}
+{%load extras %}
+<!-- Header-->
+{% block body %}
+
+<main id="main">
+
+    <section class="mt-3 ">
+        <div class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Shop for Any Code</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">
+                        Python , Wordpress , Unity , Web Development , C++ ....
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- row -->
+    <!-- <section class="hero d-flex align-items-center">
+  <div class="container"></div>
+</section> -->
+    <!-- End Hero -->
+
+    <div class="
+    mt-3
+    row
+    mb-5
+    col-lg-8
+    mx-auto
+    p-1
+    bg-light
+    rounded rounded-pill
+    shadow-sm
+    mb-4
+  ">
+        <form class="input-group">
+            <input name="query" type="search" placeholder="What're you searching for?"
+                class="form-control border-0 bg-light" />
+            <div class="flex flex-column input-group-append">
+                <button type="submit" class="btn btn-link text-primary">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div class="dropdown">
+                <button style="background-color:#4154F1" class="btn btn-primary dropdown-toggle" type="button"
+                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter By
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li> <a class="dropdown-item" href="?filter_by=popular">Popular</a>
+                    <li> <a class="dropdown-item" href="?filter_by=price_lh">Low to High</a></li>
+                    <li> <a class="dropdown-item" href="?filter_by=price_hl">High to Low</a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <!-- Section-->
+    <section class="py-5">
+        <div class="container px-2 px-lg-5 mt-1">
+            <div class="
+        row
+        gx-4 gx-lg-5
+        row-col-sm-1 row-cols-md-3 row-cols-xl-4
+        justify-content-center
+      ">
+                {% for product in products %}
+                <div class="col w-md-auto mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <!-- <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div> -->
+                        <!-- Product image-->
+                        <a href="../product/{{product.id}}" target="_blank"><img class="card-img-top"
+                                style="height: 250px; object-fit: cover" src="{% get_image_url product.id %}"
+                                alt="img" /></a>
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <a href="../product/{{product.id}}" target="_blank">
+                                    <h5 class="fw-bolder fs-4 text-truncate">{{product.title}}</h5>
+                                </a>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                <!-- <span class="text-muted text-decoration-line-through">${product.price}</span> -->
+                                <h5 class="fw-bold fs-4 text-success">${{product.price}}</h5>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <a class="btn fs-6 btn-outline-dark mt-auto" href="../product/{{product.id}}/buy">Buy
+                                    Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-3">
+                    <ul class="pagination">
+                        {% if products.has_previous %}
+                        <li class="page-item page-item">
+
+                            <a class="page-link" href="?page={{ products.previous_page_number }}"><i
+                                    class="fas fa-arrow-circle-left"></i>&nbsp;Previous</a>
+                        </li>
+                        {% endif %}
+
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{ products.number }}">{{ products.number }}</a>
+                        </li>
+
+                        {% if products.has_next %}
+                        <li class="page-item">
+
+                            <a class="page-link" href="?page={{ products.next_page_number }}">Next&nbsp;<i
+                                    class="fas fa-arrow-circle-right"></i></a>
+
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'store/assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'store/assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'store/assets/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'store/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'store/assets/vendor/purecounter/purecounter.js' %}"></script>
+    <script src="{% static 'store/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'store/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'store/assets/js/main.js' %}"></script>
+
+</main>
+{% endblock %}

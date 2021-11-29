@@ -1,0 +1,106 @@
+{% extends "store/base.html" %}
+
+{% block title %} {{blog.title}} {% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li>Blog Single</li>
+            </ol>
+            <h2>Blog Single</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <article class="entry entry-single">
+
+                        <div class="entry-img">
+                            <img src="{{blog.cover_image}}" alt="" class="img-fluid">
+                        </div>
+
+                        <h2 class="entry-title">
+                            <a class="fs-3" href="blog-single.html">{{blog.title}}</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                        href="blog-single.html">{{blog.author}}</a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                        href="blog-single.html"><time
+                                            datetime="2020-01-01">{{blog.created_on}}</time></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a
+                                        href="blog-single.html">12 Comments</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <p>
+                                {{blog.content}}
+                            </p>
+
+                            <!-- <blockquote>
+                                <p>
+                                    Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut
+                                    eos aliquam doloribus minus autem quos.
+                                </p>
+                            </blockquote> -->
+
+
+                        </div>
+
+                        <div class="entry-footer">
+                            <i class="bi bi-folder"></i>
+                            <ul class="cats">
+                                <li><a href="#">Business</a></li>
+                            </ul>
+
+                            <i class="bi bi-tags"></i>
+                            <ul class="tags">
+                                <li><a href="#">Creative</a></li>
+                                <li><a href="#">Tips</a></li>
+                                <li><a href="#">Marketing</a></li>
+                            </ul>
+                        </div>
+
+                    </article><!-- End blog entry -->
+
+
+                    <!-- AUthor -->
+                    <div class="blog-author d-flex align-items-center">
+                        <img src="assets/img/blog/blog-author.jpg" class="rounded-circle float-left" alt="">
+                        <div>
+                            <h4>{{blog.author}}</h4>
+                            <!-- <div class="social-links">
+                                <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
+                                <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
+                                <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+                            </div> -->
+                            <p>
+                            </p>
+                        </div>
+                    </div><!-- End blog author bio -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

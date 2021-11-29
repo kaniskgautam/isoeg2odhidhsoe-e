@@ -1,0 +1,72 @@
+{% extends "store/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block body %}
+
+<!-- ======= Blog Section ======= -->
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>Blog</li>
+            </ol>
+            <h2>Blog</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    {% for post in posts %}
+                    <article class="entry">
+
+                        <div class="entry-img">
+                            <img src="{{post.cover_image}}" alt="" class="img-fluid">
+                        </div>
+
+                        <h2 class="entry-title">
+                            <a class=" fs-4 " href="/blog/view/{{post.slug}}">{{post.title}}</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                        href="/blog/view/{{post.slug}}">{{post.author}}</a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                        href="/blog/view/{{post.slug}}"><time
+                                            datetime="2020-01-01">{{post.updated_on}}</time></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a
+                                        href="/blog/view/{{post.slug}}">12 Comments</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="entry-content">
+                            <p>
+                                {{post.content|slice:"0:230"}}...
+                            </p>
+                            <div class="read-more">
+                                <a href="/blog/view/{{post.slug}}">Read More</a>
+                            </div>
+                        </div>
+
+                    </article><!-- End blog entry -->
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

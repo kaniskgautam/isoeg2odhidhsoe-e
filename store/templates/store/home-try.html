@@ -1,0 +1,145 @@
+<div class="hero-image">
+    <div class="hero-text">
+        <h1 style="font-size:50px">Welcome to AKL Kode </h1>
+        <!-- <p>GET ANY CODE HERE</p> -->
+        <!-- <button>See Products</button> -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Slideshow starts here -->
+{% for product, range, nSlides in allProds %}
+<div class="container">
+    <h5 class="my-4">Flash Sale On {{product.0.category}} - Recommended Items</h5>
+    <div id="demo{{forloop.counter}}" class="carousel slide my-3" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+
+            {% for i in range %}
+            <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+            {% endfor %}
+        </ul>
+
+        <div class="container carousel-inner no-padding">
+
+            <div class="carousel-item active">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src='{% get_image_url product.0.id %}' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.0.title}}</h5>
+                            <p class="card-text">{{product.0.description}}</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                {% for i in product|slice:"1:"%}
+                <div class="col-xs-3 col-sm-3 col-md-3 w-md-auto mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <!-- <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div> -->
+                        <!-- Product image-->
+                        <a href="../product/{{i.id}}" target="_blank"><img class="card-img-top"
+                                style="height: 250px; object-fit: cover" src="{% get_image_url i.id %} alt=" img" /></a>
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <a href="../product/{{i.id}}" target="_blank">
+                                    <h5 class="fw-bolder fs-4 text-truncate">{{i.title}}</h5>
+                                </a>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                <!-- <span class="text-muted text-decoration-line-through">${product.price}</span> -->
+                                <h5 class="fw-bold fs-4 text-success">${{i.price}}</h5>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <button class="btn fs-6 btn-outline-dark mt-auto">Buy
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+            </div>
+            <div class="carousel-item">
+                {% endif %}
+
+                {% endfor %}
+            </div>
+
+
+
+        </div>
+    </div>
+    <!-- left and right controls for the slide -->
+    <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+    {% endfor %}
+</div>

@@ -1,0 +1,263 @@
+{% extends "store/base.html" %}
+<!--  -->
+{% block title %} Home {% endblock %}
+<!--  -->
+{% load extras %}
+
+{% block head %}
+
+<style>
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://dummyimage.com/600x600/000000/73a2ff&text=AKL+KODE");
+        height: 70%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    .hero-text button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 10px 25px;
+        color: black;
+        background-color: #ddd;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .hero-text button:hover {
+        background-color: #555;
+        color: white;
+    }
+
+    .col-md-3 {
+        display: inline-block;
+        margin-left: -4px;
+    }
+
+    .carousel-indicators .active {
+        background-color: blue;
+    }
+
+    /* .col-md-3 img {
+
+        width: 227px;
+        max-height: 242px;
+    } */
+
+    body .carousel-indicator li {
+        background-color: blue;
+    }
+
+    body .carousel-indicators {
+        bottom: 0;
+    }
+
+    body .carousel-control-prev-icon,
+    body .carousel-control-next-icon {
+        background-color: blue;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: auto;
+        bottom: auto;
+    }
+
+    /* body .no-padding {
+        padding-left: 0;
+        padding-right: 0;
+    } */
+
+    .read_more {
+        font-size: 17px;
+        background-color: #000;
+        color: #fff;
+        padding: 12px 0px;
+        width: 100%;
+        max-width: 204px;
+        text-align: center;
+        display: inline-block;
+        transition: ease-in all 0.5s;
+        font-weight: 500;
+        height: 54px;
+    }
+
+    .banner_main {
+        position: relative;
+        padding-bottom: 110px;
+    }
+
+    .text_box {
+        text-align: left;
+        padding-top: 36%;
+    }
+
+    /** our products section **/
+
+    .products {
+        padding: 60px 0 30px 0;
+        margin-bottom: 90px;
+        background-color: #f4f4f4;
+    }
+
+    .products .titlepage {
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .our_products {
+        padding: 0 15px 15px 15px;
+        transition: ease-in all 0.3s;
+        margin-bottom: 30px;
+    }
+
+    #ho_bo:hover.our_products {
+        box-shadow: 0px 0px 9px rgba(255, 53, 86, 0.33);
+        transition: ease-in all 0.3s;
+        margin-top: -10px;
+        cursor: pointer;
+        background-color: #fff;
+    }
+
+    .our_products h3 {
+        margin-top: 15px;
+        font-size: 22px;
+        line-height: 31px;
+        color: #000;
+        font-weight: 500;
+        padding-bottom: 10px;
+    }
+
+    .our_products span {
+        font-size: 17px;
+        line-height: 20px;
+        font-weight: 500;
+        color: #ff3556;
+    }
+
+    .our_products p {
+        font-size: 15px;
+        line-height: 21px;
+        font-weight: 400;
+        color: #000000;
+    }
+
+    .product {
+        background-color: #fff;
+        text-align: center;
+        margin: 0 -15px 0px -15px !important;
+    }
+
+    .product figure {
+        margin: 0;
+    }
+
+    .padding_left0 {
+        padding-left: 0;
+    }
+
+
+    /** end our products section **/
+</style>
+
+{% endblock head %}
+
+{% block body %}
+
+
+<section class="banner_main">
+    <div class="container">
+        <div class="banner_po">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="text_box">
+                        <!-- <span>Now started</span> -->
+                        <h1> <strong>KODE</strong> <br> Get Code, Sell Code </h1>
+                        <!-- <a class="read_more " href="/signup" role="button">
+                            <h4>Get Started</h4>
+                        </a> -->
+                        <div class="
+                        row 
+                        col-lg-8
+                        mx-auto
+                        mt-4
+                        p-1
+                        bg-light
+                        rounded rounded-pill
+                        shadow-lg
+                        fs-1
+                      ">
+                            <form class="input-group">
+                                <input name="query" type="search" placeholder="Search a Code..."
+                                    class="form-control border-0 bg-light" />
+                                <div class="flex flex-column input-group-append">
+                                    <button type="submit" class="btn btn-link text-primary">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="titlepage">
+
+                    <h2><strong>Featured Products</strong></h2>
+
+                    <!-- <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptu
+                    </span> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div id="ho_bo" class="our_products">
+                    <div class="product">
+                        <figure>
+                            <a href="../product/{{product.id}}" target="_blank"><img class="card-img-top"
+                                    style="height: 250px; object-fit: cover" src="{% get_image_url product.id %}"
+                                    alt="img" /></a>
+                        </figure>
+                    </div>
+                    <h3>{{ product.title }}</h3>
+                    <span>{{ product.category }}</span>
+                    <p>{{ product.description|slice:":50" }}...</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

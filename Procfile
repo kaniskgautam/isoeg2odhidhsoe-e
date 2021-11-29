@@ -1,0 +1,1 @@
+web: gunicorn mykode.wsgi --log-file -
