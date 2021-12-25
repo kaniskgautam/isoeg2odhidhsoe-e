@@ -1,6 +1,7 @@
 from django.http.response import HttpResponseBadRequest
 from django.shortcuts import render, redirect
 from .models import *
+from blog.models import *
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,  login, logout
@@ -52,7 +53,7 @@ def page_404(request):
     return render(request, 'store/404.html')
 
 
-def index(request):  # TODO : COMPLETE HOME PAGE
+def index(request):
 
     query = request.GET.get('query')  # Search query
     if query:
@@ -61,7 +62,8 @@ def index(request):  # TODO : COMPLETE HOME PAGE
         return redirect(reverse('products') + "?query=" + query)
 
     if not request.user.is_authenticated:
-        return render(request, 'store/index.html')
+        recent_blogs = Post.objects.all().order_by('-id')[:3]
+        return render(request, 'store/index.html', {"recent_blogs": recent_blogs})
 
     # customer = request.user.customer
     # print("CUSTOMER : ", customer)
